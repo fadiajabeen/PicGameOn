@@ -3,6 +3,8 @@ ASP.NET Core C# Choose Pic Nationality Beginner Level Game
 
 
 Technologies included .Net, HTML, JavaScript, jQuery.
+.NET Version : 3.1 .NET Core
+
 
     A white screen with 4 boxes on the 4 corners of the screen.
 
