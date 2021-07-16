@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picture Game</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/site.css?v=2" />
+</head>
+<body scroll="no">
+    <header class="header mb-3">
+        <div id="jap" class="float-left border pl-sm-1 pr-sm-1 box box-shadow text-center">Japanese</div>
+        <div id="chi" class="float-right border pl-sm-3 pr-sm-3 box box-shadow text-center">Chinese</div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div id="kor" class="float-left border  pl-sm-3 pr-sm-3 box box-shadow text-center">Korean</div>
+        <div id="tha" class="float-right border pl-sm-4 pr-sm-4 box box-shadow text-center">Thai</div>
+        <div class="pl-sm-3 pr-sm-3 box text-center score d-table" style="width: 10%; line-height: 80px">
+            <div class="border box-shadow rounded-circle" id="score">Score</div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="~/js/site.js?v=12" asp-append-version="true"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

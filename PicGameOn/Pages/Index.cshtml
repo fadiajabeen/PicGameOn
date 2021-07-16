@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center d-flex align-items-center flex-column position-absolute" id="center_content">
+        <div class="ml-auto mr-auto position-absolute" id="face_pic_wrap">
+            <img id="face_pic" src="" width="92" height="92" class="rounded-circle" onload="SlideDown()">
+            <p class="text-danger d-none">Error Loading Image. Please try agian later.</p>
+        </div>
+        <input type="hidden" name="selected_box" value="" id="selected_box" class="d-none"/>
+        <div class="mt-auto mb-auto d-none" id="replay">
+            <button class="btn" id="btn_replay" onclick="Replay()"></button>
+        </div>
+
+
+    </div>
+    <div id="info" class="d-flex align-items-end flex-column position-absolute">
+        <p></p>
+    </div>
