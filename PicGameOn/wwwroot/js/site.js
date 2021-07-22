@@ -61,12 +61,11 @@ function mouseMove(e) {
     dx = e.clientX - x;
     dy = e.clientY - y;
 
-    if (dx >= 30 || dx <= -30 ) {
+    if (dx > 30 || dx < -30 ) {
         last_pageX = e.pageX;
         last_pageY = e.pageY;
         in_next_anime_range = true;
         elem = document.getElementById("face_pic_wrap");
-        elem.removeEventListener("mousemove", mouseMove);
         mouseup(e);
     }
     else
@@ -88,33 +87,36 @@ function mouseup(e)
         last_Y_coord = last_pageY;
 
         top = ''; left = '';
-        width_offset = parseInt(92 / 2);
+        offset = 150;
+        upper = false;
         if (Japan.x1 <= last_X_coord && last_X_coord <= Japan.x2 && Japan.y1 <= last_Y_coord && last_Y_coord <= Japan.y2) {
-            top = '-=90%';                      //+ (last_pageY - width_offset )+ 'px';
-            left = '-=75%';                     // + (last_pageX - width_offset ) + 'px';
+            top = -offset;                      //+ (last_pageY - width_offset )+ 'px';
+            left = -offset;                     // + (last_pageX - width_offset ) + 'px';
             $('#selected_box').val('jap');
             $("#jap").css('background-color', '#faee48');
             last_pageX = last_pageX - 2 * 92;
             last_pageY = last_pageY - 92;
+            upper = true;
         }
         else if (China.x1 <= last_X_coord && last_X_coord <= China.x2 && China.y1 <= last_Y_coord && last_Y_coord <= China.y2) {
-            top = '-=90%';                               // '-=' + width_offset + 'px';
-            left = '+=45%';                              //  '+=' + (win_width - width_offset) + 'px';
+            top = -offset;
+            left = win_width- offset;
             $("#chi").css('background-color', '#faee48');
             $('#selected_box').val('chi');
             last_pageY = last_pageY - 92;
+            upper = true;
         }
         else if (Korea.x1 <= last_X_coord && last_X_coord <= Korea.x2 && Korea.y1 <= last_Y_coord && last_Y_coord <= Korea.y2) {
-            top = '+=' + (win_height + 92) + 'px';             //'+=12%';
-            left = '-=' + (win_width - width_offset) + 'px';   //'-=45%';
+            top = win_height - offset;
+            left = -offset;
             $("#kor").css('background-color', '#faee48');
             $('#selected_box').val('kor');
             last_pageX = last_pageX - 92;
             last_pageY = last_pageY - 30;
         }
         else if (Thai.x1 <= last_X_coord && last_X_coord <= Thai.x2 && Thai.y1 <= last_Y_coord && last_Y_coord <= Thai.y2) {
-            top = '+=' + (win_height + 92) + 'px';             //'+=45%'; 
-            left = '+=' + (win_width - width_offset) + 'px';   //'+=45%';
+            top = win_height - offset;             //'+=45%';
+            left = win_width - offset;   //'+=45%';
             $("#tha").css('background-color', '#faee48');
             $('#selected_box').val('tha');
         }
@@ -126,9 +128,12 @@ function mouseup(e)
             $("#face_pic_wrap").finish().removeAttr('style');
             $("#face_pic_wrap").css("left", last_pageX + 'px');
             $("#face_pic_wrap").css("top", last_pageY + 'px');
-            $("#face_pic").fadeOut("5000");
-
-            $("#face_pic_wrap").animate({ left: left, top: top }, 3000, displayFacePicWrap);
+            $("#face_pic").fadeOut(3500);
+            if(upper)
+                $("#face_pic_wrap").velocity({ top: top, left: left }, 3000, displayFacePicWrap);
+            else
+                $("#face_pic_wrap").velocity({ left: left, top: "100%"}, 3000, displayFacePicWrap);
+           // $("#face_pic_wrap").animate({ left: left, top: top }, 3000, displayFacePicWrap);
         }
         else {
 

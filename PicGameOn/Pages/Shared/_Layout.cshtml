@@ -6,7 +6,7 @@
     <title>Picture Game</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/jquery-ui-1.12.1/jquery-ui.css">
-    <link rel="stylesheet" href="~/css/site.css?v=14" />
+    <link rel="stylesheet" href="~/css/site.css?v=20" />
 </head>
 <body scroll="no">
     <header class="header mb-3">
@@ -14,7 +14,7 @@
         <div id="chi" class="float-right border pl-sm-4 pr-sm-4 box box-shadow text-center">Chinese</div>
     </header>
     <div class="container" scroll="no">
-        <main role="main" class="pb-3 d-flex align-items-center flex-column" scroll="no">
+        <main role="main" class="main pb-3 d-flex align-items-center flex-column" scroll="no">
             @RenderBody()
         </main>
     </div>
@@ -22,7 +22,7 @@
     <footer class="footer">
         <div id="kor" class="float-left border  pl-sm-4 pr-sm-4 box box-shadow text-center">Korean</div>
         <div id="tha" class="float-right border pl-sm-5 pr-sm-5 box box-shadow text-center">Thai</div>
-        <div class="pl-sm-3 pr-sm-3 box text-center score d-table">
+        <div class="pl-sm-3 pr-sm-3 box text-center score d-flex  align-items-center flex-column">
             <div class="border box-shadow rounded-circle pt-sm-2" id="score">Score</div>
         </div>
     </footer>
@@ -30,7 +30,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery-ui-1.12.1/jquery-ui.js"></script>
-    <script src="~/js/site.js?v=12" asp-append-version="true"></script>
+    <script src="~/lib/velocity-1.5.2/velocity.min.js"></script>
+    <script src="~/js/site.js?v=16" asp-append-version="true"></script>
 
 
     @RenderSection("Scripts", required: false)
